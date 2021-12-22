@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="56c0b2e2-6327-41fb-95a2-4dca83b18c3f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="git-projFlow" doc:id="903e6416-7d14-4190-9499-51fa19295e1b" >
+		<http:listener doc:name="Listener" doc:id="c8bd919d-859d-4566-a5f9-216575fb2282" config-ref="HTTP_Listener_config" path="/git"/>
+		<set-payload value="git first project" doc:name="Set Payload" doc:id="9268ec23-24d7-4083-8f1c-bec5f6accead" />
+		<logger level="INFO" doc:name="Logger" doc:id="31ed9d9d-c973-4a37-9256-16aca153ffb1" message="git first project"/>
+	</flow>
+</mule>
